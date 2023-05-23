@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: sfpro_medium;
+  src: url('./font/sfpro_medium.otf') format('truetype');
+}
+
+@font-face {
+  font-family: sfpro_regular;
+  src: url('./font/sfpro_regular.otf') format('truetype');
+}
+
+@font-face {
+  font-family: sfpro_bold;
+  src: url('./font/sfpro_bold.otf') format('truetype');
+}

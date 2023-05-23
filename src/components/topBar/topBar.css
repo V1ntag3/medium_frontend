@@ -1,15 +1,23 @@
 .top-bar {
   @apply font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-white shadow sm:items-baseline w-full;
+  align-items: center;
 }
 
 .top-bar-left {
   @apply mb-2 sm:mb-0;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
 .top-bar-title {
-  @apply text-2xl no-underline text-gray-700 hover:text-gray-800 ml-2;
+  @apply flex align-middle text-2xl no-underline text-gray-700 hover:text-gray-800;
+  font-family: sfpro_medium;
 }
 
-.top-bar-right a {
-  @apply text-lg no-underline text-gray-700 hover:text-gray-800 ml-2;
+.avatar {
+  height: 60px;
+  width: 60px;
 }

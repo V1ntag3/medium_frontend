@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import './topBar.css';
+import avatar from "../../avatar/avatar.png"
 
 export default class TopBar extends Component {
   constructor(props) {
@@ -16,10 +17,8 @@ export default class TopBar extends Component {
           </a>
         </div>
         <div className="top-bar-right">
-          <div>
-            <a href="/">BLOG</a>
-            <a href="/">ABOUT</a>
-            <a href="/">PROJECTS</a>
+          <div className='avatar'>
+            <img src={avatar} alt='avatar' />
           </div>
         </div>
       </nav>
