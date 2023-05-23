@@ -1,6 +1,8 @@
 .top-bar {
   @apply font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-white shadow sm:items-baseline w-full;
   align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .top-bar-left {
