@@ -1,17 +1,12 @@
 .top-bar {
   @apply font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-white shadow sm:items-baseline w-full;
   align-items: center;
+  align-content: center;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 .top-bar-left {
   @apply mb-2 sm:mb-0;
-  display: flex;
-  justify-items: center;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
 }
 
 .top-bar-title {
@@ -22,4 +17,11 @@
 .avatar {
   height: 60px;
   width: 60px;
+}
+
+@media (max-width: 640px) {
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+  }
 }
