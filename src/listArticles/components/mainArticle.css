@@ -1,0 +1,50 @@
+.main-article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.main-article-cover {
+  max-width: 57vw;
+  padding-top: 100px;
+}
+
+.main-article-title {
+  font-family: new_york_heavy;
+  font-size: 2.5vh;
+  color: #2a324bcc;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 15vw;
+  margin-right: 15vw;
+}
+
+.main-article-subtitle {
+  font-family: new_york_extralarge;
+  font-size: 1.5vh;
+  color: #495057;
+  
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 25vw;
+  margin-right: 25vw;
+}
+
+@media (min-width: 1000px) {
+  .main-article-cover {
+    max-width: 40vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-article-title {
+    font-size: 1.9vh;
+  }
+
+  .main-article-subtitle {
+    font-size: 1.45vh;
+  }
+}

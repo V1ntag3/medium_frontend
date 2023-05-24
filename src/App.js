@@ -1,10 +1,10 @@
-import TopBar from './components/topBar/topBar';
 import './index.css';
+import ListArticle from './listArticles/listArticles';
 
 function App() {
   return (
     <div>
-      <TopBar />
+      <ListArticle />
     </div>
   );
 }

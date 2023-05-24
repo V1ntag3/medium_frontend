@@ -16,3 +16,13 @@
   font-family: sfpro_bold;
   src: url('./font/sfpro_bold.otf') format('truetype');
 }
+
+@font-face {
+  font-family: new_york_extralarge;
+  src: url('./font/new_york_extralarge.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: new_york_heavy;
+  src: url('./font/new_york_heavy.ttf') format('truetype');
+}

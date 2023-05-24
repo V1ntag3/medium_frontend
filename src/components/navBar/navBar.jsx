@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import './topBar.css';
+import './navBar.css';
 import avatar from "../../avatar/avatar.png"
 
-export default class TopBar extends Component {
+export default class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -10,13 +10,13 @@ export default class TopBar extends Component {
 
   render() {
     return (
-      <nav className="top-bar">
-        <div className="top-bar-left">
-          <a className="top-bar-title" href="/">
+      <nav className="nav-bar">
+        <div className="nav-bar-left">
+          <a className="nav-bar-title" href="/">
             MEDIUM
           </a>
         </div>
-        <div className="top-bar-right">
+        <div className="nav-bar-right">
           <div className='avatar'>
             <img src={avatar} alt='avatar' />
           </div>
