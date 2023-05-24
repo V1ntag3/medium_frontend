@@ -1,0 +1,38 @@
+.article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+  max-width: 40vw;
+}
+
+.article-cover {
+  max-width: 20vw;
+}
+
+.article-title {
+  color: #495057;
+  margin: 0 auto;
+  max-width: 40vw;
+  font-family: sfpro_medium;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (min-width: 320px) {
+  .article {
+    margin-top: 50px;
+  }
+
+  .article-cover {
+    max-width: 30vw;
+  }
+
+  .article-title {
+    font-size: 16px;
+  }
+}

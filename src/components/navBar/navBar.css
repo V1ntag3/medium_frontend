@@ -2,21 +2,23 @@
   @apply font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-white shadow sm:items-baseline w-full;
   align-items: center;
   align-content: center;
+  justify-content: space-between;
   flex-direction: row;
+  height: 7vh;
 }
 
 .nav-bar-left {
-  @apply mb-2 sm:mb-0;
+  @apply sm:mb-0;
 }
 
 .nav-bar-title {
-  @apply flex align-middle text-2xl no-underline text-gray-700 hover:text-gray-800;
+  @apply flex text-2xl no-underline text-gray-700 hover:text-gray-800;
   font-family: sfpro_medium;
+  font-size: 2.5vh;
 }
 
 .avatar {
-  height: 60px;
-  width: 60px;
+  width: 4.8vh;
 }
 
 @media (max-width: 640px) {

@@ -24,6 +24,7 @@ export default class MainArticle extends Component {
         <div className="main-article-subtitle">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </div>
+        <hr className='divisor'/>
       </div>
     );
   }

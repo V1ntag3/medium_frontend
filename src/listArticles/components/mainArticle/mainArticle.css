@@ -25,12 +25,16 @@
   font-family: new_york_extralarge;
   font-size: 1.5vh;
   color: #495057;
-  
   text-align: center;
   margin-top: 10px;
   margin-bottom: 20px;
   margin-left: 25vw;
   margin-right: 25vw;
+}
+
+.divisor {
+  border-top: 3px solid #bbb;
+  width: 50vw;
 }
 
 @media (min-width: 1000px) {
