@@ -15,6 +15,7 @@ export default class ListArticle extends Component {
       <div>
         <NavBar />
         <MainArticle />
+        <div className="all-articles">All Articles</div>
         <div className="articles">
           <ArticleElement />
           <ArticleElement />

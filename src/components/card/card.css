@@ -1,0 +1,19 @@
+/* Card.module.css */
+
+.card {
+  display: flex;
+  align-items: center;
+  width: 70vw;
+  height: 55px;
+  margin-bottom: 30px;
+  font-family: sfpro_medium;
+  color: #495057bf;
+}
+
+.card-avatar {
+  width: 55px;
+}
+
+.informations {
+  margin-left: 10px;
+}

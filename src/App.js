@@ -1,11 +1,16 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ListArticles from './listArticles/listArticles';
+import ArticleElement from './Article/article';
 import './index.css';
-import ListArticle from './listArticles/listArticles';
 
 function App() {
   return (
-    <div>
-      <ListArticle />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ListArticles />} />
+        <Route path="article/:id" element={<ArticleElement />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import './navBar.css';
-import avatar from "../../avatar/avatar.png"
+import avatar from '../../avatar/avatar.png';
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -17,8 +17,8 @@ export default class NavBar extends Component {
           </a>
         </div>
         <div className="nav-bar-right">
-          <div className='avatar'>
-            <img src={avatar} alt='avatar' />
+          <div className="avatar">
+            <img src={avatar} alt="avatar" />
           </div>
         </div>
       </nav>
