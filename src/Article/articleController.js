@@ -10,6 +10,7 @@ export default function getArticle(id) {
         readingTime
         body
         tagList
+        createdAt
       }
     }
   `;

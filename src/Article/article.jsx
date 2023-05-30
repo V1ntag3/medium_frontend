@@ -1,4 +1,5 @@
 import { TagGroup, Tag } from 'rsuite';
+import parse from 'html-react-parser';
 import NavBar from '../components/NavBar/navBar';
 import Card from '../components/Card/card';
 import './article.css';
@@ -33,6 +34,7 @@ function mountArticle() {
   }
 
   const { article } = data;
+  console.log(article);
   const mainArticleCoverPath =
     'https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80';
 
@@ -45,8 +47,8 @@ function mountArticle() {
         <img src={mainArticleCoverPath} alt="cover-article" />
       </div>
       <hr className="divisor" />
-      <Card />
-      <div className="content">{article.body}</div>
+      <Card readingTime={article.readingTime} creationAt={article.createdAt} />
+      <div className="content">{parse(article.body)}</div>
       <div className="tags">
         Tags:
         <TagGroup className="tags">
