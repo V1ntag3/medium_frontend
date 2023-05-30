@@ -6,6 +6,7 @@ export default function getArticles() {
       articles {
         id
         title
+        subtitle
       }
     }
   `;

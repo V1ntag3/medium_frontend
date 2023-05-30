@@ -1,86 +1,70 @@
-import { Component } from 'react';
 import { TagGroup, Tag } from 'rsuite';
-import NavBar from '../components/navBar/navBar';
-import Card from '../components/card/card';
+import NavBar from '../components/NavBar/navBar';
+import Card from '../components/Card/card';
 import './article.css';
 import 'rsuite/dist/rsuite.min.css';
+import getArticle from './articleController';
+import Loading from '../components/Loading/loading';
 
-export default class Article extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mainArticleCoverPath:
-        'https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80',
-    };
+const tagColors = [
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'cyan',
+  'blue',
+  'violet',
+  'purple',
+  'pink',
+];
+
+function mountArticle() {
+  const params = window.location.pathname.split('/');
+  const id = params[params.length - 1];
+
+  const { data, error, loading } = getArticle(id);
+
+  if (error) {
+    return <Loading message={error.message} />;
   }
 
-  render() {
-    const { mainArticleCoverPath } = this.state;
-    const tagColors = [
-      'red',
-      'orange',
-      'yellow',
-      'green',
-      'cyan',
-      'blue',
-      'violet',
-      'purple',
-      'pink',
-    ];
-    return (
-      <div className="article-page">
-        <NavBar />
-        <div className="title">
-          Title Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Commodi, unde placeat!
-        </div>
-        <div className="subtitle">
-          Title Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Commodi, unde placeat! Laboriosam, sequi perferendis qui perspiciatis
-          similique maxime?
-        </div>
-        <div className="cover">
-          <img src={mainArticleCoverPath} alt="cover-article" />
-        </div>
-        <hr className="divisor" />
-        <Card />
-        <div className="content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-          perferendis, natus modi obcaecati, aliquam quaerat ipsa voluptas
-          officiis, nihil quam nulla! Veniam assumenda facere fugit eum nisi
-          quae nobis officiis. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Aliquid perferendis, natus modi obcaecati, aliquam
-          quaerat ipsa voluptas officiis, nihil quam nulla! Veniam assumenda
-          facere fugit eum nisi quae nobis officiis. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Aliquid perferendis, natus modi
-          obcaecati, aliquam quaerat ipsa voluptas officiis, nihil quam nulla!
-          Veniam assumenda facere fugit eum nisi quae nobis officiis. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-          perferendis, natus modi obcaecati, aliquam quaerat ipsa voluptas
-          officiis, nihil quam nulla! Veniam assumenda facere fugit eum nisi
-          quae nobis officiis. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Aliquid perferendis, natus modi obcaecati, aliquam
-          quaerat ipsa voluptas officiis, nihil quam nulla! Veniam assumenda
-          facere fugit eum nisi quae nobis officiis.
-        </div>
-        <div className="tags">
-          Tags:
-          <TagGroup className='tags'>
-            <Tag color={tagColors[Math.floor(Math.random() * tagColors.length - 1)]}>Product</Tag>
-            <Tag
-              color={tagColors[Math.floor(Math.random() * tagColors.length - 1 )]}
-            >
-              Tecnology
-            </Tag>
+  if (loading) {
+    return <Loading message="Loading..." />;
+  }
 
-            <Tag
-              color={tagColors[Math.floor(Math.random() * tagColors.length - 1)]}
-            >
-              Development
-            </Tag>
-          </TagGroup>
-        </div>
+  const { article } = data;
+  const mainArticleCoverPath =
+    'https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80';
+
+  return (
+    <div className="article-page">
+      <NavBar />
+      <div className="title">{article.title}</div>
+      <div className="subtitle">{article.subtitle}</div>
+      <div className="cover">
+        <img src={mainArticleCoverPath} alt="cover-article" />
       </div>
-    );
-  }
+      <hr className="divisor" />
+      <Card />
+      <div className="content">{article.body}</div>
+      <div className="tags">
+        Tags:
+        <TagGroup className="tags">
+          {article.tagList.map(tag => (
+            <Tag
+              color={
+                tagColors[Math.floor(Math.random() * tagColors.length - 1)]
+              }
+            >
+              {tag}
+            </Tag>
+          ))}
+        </TagGroup>
+      </div>
+    </div>
+  );
+}
+
+export default function Article() {
+  return mountArticle();
 }

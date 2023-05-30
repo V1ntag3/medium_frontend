@@ -1,33 +1,51 @@
 import './listArticles.css';
 import MainArticle from './components/mainArticle/mainArticle';
-import NavBar from '../components/navBar/navBar';
+import NavBar from '../components/NavBar/navBar';
 import ArticleElement from './components/articleElement/articleElement';
 import getArticles from './listArticlesController';
+import Loading from '../components/Loading/loading';
 
 function mountArticles() {
   const { data, error, loading } = getArticles();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading message="Loading..." />;
   }
+
   if (error) {
-    return <div>Error</div>;
+    return <Loading message={error.message} />;
   }
 
-  const articlesList = data.articles.map(article => (
-    <ArticleElement key={article.id} title={article.title} />
-  ));
-  return articlesList;
-}
+  const articlesList = data.articles;
+  if (!articlesList || articlesList.length === 0) {
+    return <div>No articles</div>;
+  }
 
-export default function ListArticle() {
-  const articlesList = mountArticles();
+  const mainArticle = articlesList[0];
+  const otherArticles = articlesList.slice(1);
+
   return (
     <div>
       <NavBar />
-      <MainArticle />
+      <MainArticle
+        id={mainArticle.id}
+        title={mainArticle.title}
+        subtitle={mainArticle.subtitle}
+      />
       <div className="all-articles">All Articles</div>
-      <div className="articles">{articlesList}</div>
+      <div className="articles">
+        {otherArticles.map(article => (
+          <ArticleElement
+            key={article.id}
+            id={article.id}
+            title={article.title}
+          />
+        ))}
+      </div>
     </div>
   );
+}
+
+export default function ListArticle() {
+  return mountArticles();
 }
